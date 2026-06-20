@@ -1,0 +1,24 @@
+{
+  "name": "smart-digest-market-intelligence-eve",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "eve dev",
+    "build": "eve build",
+    "start": "eve start",
+    "info": "eve info",
+    "discord:register-commands": "node --env-file=.env scripts/register-discord-commands.mjs"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^3.0.0",
+    "ai": "7.0.0-beta.178",
+    "eve": "^0.11.7",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "microsandbox": "^0.5.7"
+  }
+}
