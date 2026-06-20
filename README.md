@@ -1,6 +1,6 @@
 # Smart Digest & Market Intelligence
 
-A daily engineering digest bot built with [Eve](https://eve.dev). It fetches Hacker News front-page stories, monitors your chosen YouTube channels, filters for high-signal engineering content, and posts a curated summary to Discord every morning at 8:00 AM.
+A daily engineering digest bot built with [Eve](https://eve.dev). It fetches Hacker News front-page stories, monitors your chosen YouTube channels, filters for high-signal engineering content, and posts a curated summary to Discord every morning at 9:00 AM JST.
 
 ## What it does
 
@@ -61,7 +61,7 @@ Register the `/digest` slash command (once per app, or after changing command me
 npm run discord:register-commands
 ```
 
-In Discord, run **`/digest`** in any channel the bot can access to trigger a digest on demand. The scheduled cron still posts automatically to `DIGEST_CHANNEL_ID` at 8:00 AM UTC.
+In Discord, run **`/digest`** in any channel the bot can access to trigger a digest on demand. The scheduled cron still posts automatically to `DIGEST_CHANNEL_ID` at 9:00 AM JST (00:00 UTC).
 
 ### YouTube watchlist
 
@@ -121,7 +121,7 @@ agent/
 ├── agent.ts                 # model: gemini-2.5-flash (Google)
 ├── instructions.md          # digest workflow
 ├── channels/discord.ts
-├── schedules/daily-digest.ts   # cron: 0 8 * * *
+├── schedules/daily-digest.ts   # cron: 0 0 * * * (09:00 JST)
 ├── skills/research.md          # filtering criteria
 ├── tools/
 │   ├── fetch_tech_news.ts
@@ -165,7 +165,7 @@ curl -X POST http://127.0.0.1:3000/eve/v1/session \
 
 ## Production notes
 
-- Vercel cron evaluates schedules in **UTC** — adjust `0 8 * * *` in `agent/schedules/daily-digest.ts` if you need local 8 AM.
+- Vercel cron evaluates schedules in **UTC** — current schedule is `0 0 * * *` (09:00 JST). Adjust in `agent/schedules/daily-digest.ts` if you change timezone.
 - `eve dev` does not fire cron automatically; use the dev dispatch route above or deploy.
 - Ensure the bot can send messages in the target channel.
 

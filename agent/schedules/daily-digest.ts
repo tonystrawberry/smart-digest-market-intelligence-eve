@@ -4,7 +4,8 @@ import { DIGEST_CHANNEL_ID } from "../lib/discord-config.js";
 import { DIGEST_PROMPT } from "../lib/digest-prompt.js";
 
 export default defineSchedule({
-  cron: "0 8 * * *",
+  // 09:00 JST (UTC+9) — Vercel cron uses UTC
+  cron: "0 0 * * *",
   async run({ receive, waitUntil, appAuth }) {
     waitUntil(
       receive(discord, {
