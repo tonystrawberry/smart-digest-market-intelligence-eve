@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 120" font-family="system-ui, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .node { fill: #f1f5f9; stroke: #64748b; stroke-width: 1.5; }
+      .txt { font-size: 9px; fill: #1e293b; text-anchor: middle; }
+      .edge { stroke: #475569; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    </style>
+  </defs>
+  <text x="360" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Digest session lifecycle (one run, no DB state)</text>
+
+  <circle cx="28" cy="68" r="10" fill="#0f172a"/>
+  <rect class="node" x="50" y="52" width="88" height="32" rx="16"/><text x="94" y="72" class="txt">SessionStarted</text>
+  <rect class="node" x="155" y="52" width="88" height="32" rx="16"/><text x="199" y="72" class="txt">ToolFetchNews</text>
+  <rect class="node" x="260" y="52" width="72" height="32" rx="16"/><text x="296" y="72" class="txt">ToolFetchYT</text>
+  <rect class="node" x="350" y="52" width="72" height="32" rx="16"/><text x="386" y="72" class="txt">SkillLoaded</text>
+  <rect class="node" x="440" y="52" width="64" height="32" rx="16"/><text x="472" y="72" class="txt">Filtering</text>
+  <rect class="node" x="520" y="52" width="72" height="32" rx="16"/><text x="556" y="72" class="txt">DraftDigest</text>
+  <rect class="node" x="610" y="52" width="72" height="32" rx="16"/><text x="646" y="72" class="txt">PostDiscord</text>
+  <circle cx="702" cy="68" r="10" fill="#0f172a"/>
+
+  <path class="edge" d="M38,68 H50"/>
+  <path class="edge" d="M138,68 H155"/>
+  <path class="edge" d="M243,68 H260"/>
+  <path class="edge" d="M332,68 H350"/>
+  <path class="edge" d="M422,68 H440"/>
+  <path class="edge" d="M504,68 H520"/>
+  <path class="edge" d="M592,68 H610"/>
+  <path class="edge" d="M682,68 H692"/>
+
+  <text x="94" y="98" class="txt" font-size="8" fill="#64748b">DIGEST_PROMPT /digest</text>
+  <text x="646" y="98" class="txt" font-size="8" fill="#64748b">message.completed</text>
+</svg>

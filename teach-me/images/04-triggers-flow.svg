@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" font-family="system-ui, sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; }
+      .hub { fill: #e0f2fe; stroke: #0284c7; stroke-width: 2; }
+      .out { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; }
+      .lbl { font-size: 10px; fill: #1e293b; }
+      .grp { fill: none; stroke: #cbd5e1; stroke-dasharray: 4 3; }
+      .gt { font-size: 11px; font-weight: 600; fill: #475569; }
+      .title { font-size: 13px; font-weight: 700; fill: #0f172a; }
+    </style>
+  </defs>
+  <text x="350" y="22" text-anchor="middle" class="title">Two triggers, one agent session, Discord post</text>
+
+  <rect class="grp" x="20" y="40" width="300" height="200" rx="10"/>
+  <text x="30" y="58" class="gt">Scheduled path</text>
+  <rect class="box" x="40" y="70" width="260" height="26" rx="6"/><text x="50" y="87" class="lbl">Vercel cron 0 8 * * * UTC</text>
+  <rect class="box" x="40" y="102" width="260" height="26" rx="6"/><text x="50" y="119" class="lbl">daily-digest.ts run()</text>
+  <rect class="box" x="40" y="134" width="260" height="34" rx="6"/><text x="50" y="150" class="lbl">receive(discord, message, target)</text>
+  <rect class="box" x="40" y="174" width="260" height="26" rx="6"/><text x="50" y="191" class="lbl">target.channelId = DIGEST_CHANNEL_ID</text>
+
+  <rect class="grp" x="20" y="250" width="300" height="120" rx="10"/>
+  <text x="30" y="268" class="gt">Manual path</text>
+  <rect class="box" x="40" y="280" width="260" height="26" rx="6"/><text x="50" y="297" class="lbl">User types /digest</text>
+  <rect class="box" x="40" y="312" width="260" height="26" rx="6"/><text x="50" y="329" class="lbl">POST /eve/v1/discord (signed)</text>
+  <rect class="box" x="40" y="344" width="260" height="26" rx="6"/><text x="50" y="361" class="lbl">onCommand context: DIGEST_PROMPT</text>
+
+  <rect class="hub" x="380" y="160" width="140" height="50" rx="8"/>
+  <text x="450" y="182" text-anchor="middle" class="lbl" font-weight="600">Agent session</text>
+  <text x="450" y="198" text-anchor="middle" class="lbl" font-size="9" fill="#64748b">same tools + instructions</text>
+
+  <rect class="out" x="560" y="160" width="120" height="50" rx="8"/>
+  <text x="620" y="182" text-anchor="middle" class="lbl" font-weight="600">discord.post()</text>
+  <text x="620" y="198" text-anchor="middle" class="lbl" font-size="9" fill="#64748b">message.completed</text>
+
+  <path d="M300,185 L380,185" stroke="#475569" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+  <path d="M300,330 L340,330 L340,185 L380,185" stroke="#475569" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+  <path d="M520,185 L560,185" stroke="#475569" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+</svg>
