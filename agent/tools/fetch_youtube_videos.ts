@@ -47,6 +47,7 @@ async function fetchChannelVideos(
     channelId: string;
     channelName: string;
     publishedAt: string;
+    description: string | null;
   }>
 > {
   const response = await fetch(
@@ -67,6 +68,7 @@ async function fetchChannelVideos(
     channelId: string;
     channelName: string;
     publishedAt: string;
+    description: string | null;
   }> = [];
 
   for (const entry of parseFeedEntries(xml)) {
@@ -77,6 +79,7 @@ async function fetchChannelVideos(
     const channelName = authorBlock
       ? (extractTag(authorBlock[0], "name") ?? channelId)
       : channelId;
+    const description = extractTag(entry, "media:description");
 
     if (!title || !url || !publishedAt) continue;
     if (!isWithinLookback(publishedAt, lookbackHours)) continue;
@@ -87,6 +90,7 @@ async function fetchChannelVideos(
       channelId,
       channelName,
       publishedAt: new Date(publishedAt).toISOString(),
+      description,
     });
   }
 
@@ -111,6 +115,7 @@ export default defineTool({
       channelId: string;
       channelName: string;
       publishedAt: string;
+      description: string | null;
     }> = [];
     const errors: string[] = [];
 
