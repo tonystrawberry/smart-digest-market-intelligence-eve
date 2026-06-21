@@ -19,6 +19,7 @@
     "zod": "^4.0.0"
   },
   "devDependencies": {
+    "@types/node": "^26.0.0",
     "microsandbox": "^0.5.7"
   }
 }

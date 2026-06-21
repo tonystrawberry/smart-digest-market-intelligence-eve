@@ -5,6 +5,11 @@ import {
 } from "../lib/digest-prompt.js";
 
 export default discordChannel({
+  credentials: {
+    applicationId: () => process.env.DISCORD_APPLICATION_ID!,
+    botToken: () => process.env.DISCORD_BOT_TOKEN!,
+    publicKey: () => process.env.DISCORD_PUBLIC_KEY!,
+  },
   onCommand(_ctx, interaction) {
     if (interaction.commandName === DIGEST_COMMAND_NAME) {
       return {
