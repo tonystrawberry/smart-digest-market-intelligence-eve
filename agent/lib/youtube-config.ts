@@ -1,6 +1,7 @@
 /** YouTube channel IDs to poll (UC + 22 chars). Add channels you want to follow. */
 export const YOUTUBE_CHANNEL_IDS = [
-  "UCsBjURrPoezykLs9EqgamOA"
+  "UCsBjURrPoezykLs9EqgamOA",
+  "UCLKPca3kwwd-B59HNr-_lvA",
 ] as const;
 
 /** Only surface uploads newer than this many hours before the digest run. */
